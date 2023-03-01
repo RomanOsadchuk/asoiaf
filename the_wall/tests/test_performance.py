@@ -26,7 +26,7 @@ class PerformanceTest(TestCase):
         start = datetime.now()
         response = self.client.get(url)
         end = datetime.now()
-        duration = (end - start)
+        duration = (end - start).seconds
 
         self.assertEqual(response.json(), {"day": None, "cost": 1148550000000})
         self.assertLess(duration, 1)

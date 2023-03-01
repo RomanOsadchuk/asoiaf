@@ -4,7 +4,7 @@ from the_wall.utils import build_wall, parse_input_file
 
 
 class Command(BaseCommand):
-    help = "Build the wall from config file"
+    help = "Builds the wall from config file"
 
     def handle(self, *args, **options):
         Section.objects.all().delete()
