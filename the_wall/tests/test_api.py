@@ -1,39 +1,20 @@
-from django.conf import settings
 from django.test import TestCase
 from django.urls import reverse
 
-from the_wall.models import Section
-
-
-def days_from_height(height: int) -> str:
-    result = ""
-    day = 1
-    while height < settings.WALL_HEIGHT:
-        result += f"{day},"
-        height += 1
-        day += 1
-    return result[:-1]
-
-
-def create_sections(data: list[list[int]]):
-    for i, profile in enumerate(data):
-        for j, height in enumerate(profile):
-            days_str = days_from_height(int(height))
-            section = Section(profile=i+1, order=j+1, building_days_str=days_str)
-            section.save()
+from the_wall.utils import build_wall
 
 
 DATA = [
     [21, 25, 28],
     [17],
-    [17, 22, 17, 19, 17],
+    [17, 22, 17, 19, 17, 30],
 ]
 
 
 class EndpointsTests(TestCase):
 
     def setUp(self) -> None:
-        create_sections(DATA)
+        build_wall(DATA)
 
     def test_profile_ice_on_day(self):
         params = [(1, 1, 585), (1, 2, 585), (1, 3, 390), (1, 5, 390), (1, 6, 195), (1, 9, 195), (1, 10, 0)]

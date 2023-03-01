@@ -1,28 +1,27 @@
 from django.db import models
 
 YARDS_PER_FOOT = 195
+FEET_PER_DAY = 1
+YARDS_PER_DAY = YARDS_PER_FOOT * FEET_PER_DAY
 PRICE_PER_YARD = 1900
 
 
-class SectionManager(models.Manager):
+class LedgerManager(models.Manager):
 
     def yards_on_day(self, profile: int, day: int) -> int:
-        query_set = self.filter(profile=profile)
-        return sum(section.yards_on_day(day) for section in query_set)
+        query_set = self.filter(section__profile=profile, day=day)
+        return query_set.count() * YARDS_PER_DAY
 
     def cost_by_day(self, profile: int = None, day: int = None) -> int:
-        query_set = self.filter(profile=profile) if profile else self.all()
-        if not day:
-            return sum(section.cost_total() for section in query_set)
-        return sum(section.cost_by_day(day) for section in query_set)
+        query_set = self.filter(section__profile=profile) if profile else self.all()
+        if day:
+            query_set = query_set.filter(day__lte=day)
+        return query_set.count() * YARDS_PER_DAY * PRICE_PER_YARD
 
 
 class Section(models.Model):
     profile = models.PositiveIntegerField()
     order = models.PositiveIntegerField()
-    building_days_str = models.CharField(max_length=100)
-
-    objects = SectionManager()
 
     class Meta:
         unique_together = ['profile', 'order']
@@ -30,21 +29,13 @@ class Section(models.Model):
     def __str__(self) -> str:
         return f"Profile {self.profile} Section {self.order}"
 
-    @property
-    def building_days_list(self) -> list[int]:
-        return [int(d) for d in self.building_days_str.split(",")]
 
-    def yards_on_day(self, day: int) -> int:
-        return YARDS_PER_FOOT if day in self.building_days_list else 0
+class Ledger(models.Model):
+    section = models.ForeignKey(Section, on_delete=models.CASCADE)
+    day = models.PositiveIntegerField()
 
-    def yards_by_day(self, day: int) -> int:
-        return sum(YARDS_PER_FOOT for d in self.building_days_list if d <= day)
+    class Meta:
+        indexes = [models.Index(fields=['day'])]
+        unique_together = ['section', 'day']
 
-    def cost_by_day(self, day: int) -> int:
-        return PRICE_PER_YARD * self.yards_by_day(day)
-
-    def yards_total(self) -> int:
-        return YARDS_PER_FOOT * len(self.building_days_list)
-
-    def cost_total(self) -> int:
-        return PRICE_PER_YARD * self.yards_total()
+    objects = LedgerManager()
