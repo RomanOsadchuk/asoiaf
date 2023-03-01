@@ -2,7 +2,7 @@ from django.conf import settings
 from django.test import TestCase
 from django.urls import reverse
 
-from .models import Section
+from the_wall.models import Section
 
 
 def days_from_height(height: int) -> str:
@@ -16,7 +16,6 @@ def days_from_height(height: int) -> str:
 
 
 def create_sections(data: list[list[int]]):
-    Section.objects.all().delete()
     for i, profile in enumerate(data):
         for j, height in enumerate(profile):
             days_str = days_from_height(int(height))
@@ -31,7 +30,7 @@ DATA = [
 ]
 
 
-class SomeTests(TestCase):
+class EndpointsTests(TestCase):
 
     def setUp(self) -> None:
         create_sections(DATA)
