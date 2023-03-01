@@ -20,7 +20,7 @@ class SectionManager(models.Manager):
 class Section(models.Model):
     profile = models.PositiveIntegerField()
     order = models.PositiveIntegerField()
-    building_days_str = models.CharField(max_length=100)
+    building_days_str = models.CharField(max_length=200)
 
     objects = SectionManager()
 
