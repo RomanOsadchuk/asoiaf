@@ -2,6 +2,7 @@ from django.core.management.base import BaseCommand
 
 from the_wall.models import Section
 from the_wall.multiprocess_build import build_wall_multiprocess
+from the_wall.utils import parse_input_file
 
 
 class Command(BaseCommand):
@@ -13,5 +14,6 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         Section.objects.all().delete()
         teams_count = options["teams_count"]
-        build_wall_multiprocess(teams_count)
+        unfinished_sections = parse_input_file()
+        build_wall_multiprocess(unfinished_sections, teams_count)
         self.stdout.write("The wall has been built", ending='\n')

@@ -1,29 +1,5 @@
 from django.db import models
 
-YARDS_PER_FOOT = 195
-FEET_PER_DAY = 1
-YARDS_PER_DAY = YARDS_PER_FOOT * FEET_PER_DAY
-PRICE_PER_YARD = 1900
-
-
-class LedgerManager(models.Manager):
-
-    def yards_on_day(self, profile: int, day: int) -> int:
-        """Counts how many yards were built for a given profile on a given day"""
-        query_set = self.filter(section__profile=profile, day=day)
-        return query_set.count() * YARDS_PER_DAY
-
-    def cost_by_day(self, profile: int | None, day: int | None) -> int:
-        """
-        Counts how much was spent on building given profile accumulated by a given day
-        If profile is None - counts spends for entire wall
-        If day is None - counts total spent for all days
-        """
-        query_set = self.filter(section__profile=profile) if profile else self.all()
-        if day:
-            query_set = query_set.filter(day__lte=day)
-        return query_set.count() * YARDS_PER_DAY * PRICE_PER_YARD
-
 
 class Section(models.Model):
     """
@@ -51,5 +27,3 @@ class Ledger(models.Model):
     class Meta:
         indexes = [models.Index(fields=["day"])]
         unique_together = ["section", "day"]
-
-    objects = LedgerManager()

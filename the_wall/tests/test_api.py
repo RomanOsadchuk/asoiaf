@@ -1,13 +1,20 @@
 from django.test import TestCase
 from django.urls import reverse
 
-from the_wall.utils import build_wall
+from the_wall.entities import UnfinishedSection
+from the_wall.use_cases import build_wall
 
 
 DATA = [
-    [21, 25, 28],
-    [17],
-    [17, 22, 17, 19, 17, 30],
+    UnfinishedSection(height=21, profile=1, order=1),
+    UnfinishedSection(height=25, profile=1, order=2),
+    UnfinishedSection(height=28, profile=1, order=3),
+    UnfinishedSection(height=17, profile=2, order=1),
+    UnfinishedSection(height=17, profile=3, order=1),
+    UnfinishedSection(height=22, profile=3, order=2),
+    UnfinishedSection(height=17, profile=3, order=3),
+    UnfinishedSection(height=19, profile=3, order=4),
+    UnfinishedSection(height=17, profile=3, order=5),
 ]
 
 

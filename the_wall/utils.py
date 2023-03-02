@@ -1,34 +1,21 @@
 import os
 
 from django.conf import settings
-from .models import Section, Ledger
+from .entities import UnfinishedSection
 
 
-def build_wall(initial_heights_data: list[list[int]]):
-    """
-    Creates database records from list[list[int]] data structure
-    Integers position i, j in this "matrix" defines profile section
-    Their values represent initial height of that section
-    """
-    for i, profile_data in enumerate(initial_heights_data):
-        for j, height in enumerate(profile_data):
-            # profiles and sections order starts from 1 - therefore +1
-            section = Section.objects.create(profile=i+1, order=j+1)
-            bulding_days = range(1, settings.WALL_HEIGHT - height + 1)
-            records = [Ledger(section=section, day=d) for d in bulding_days]
-            Ledger.objects.bulk_create(records)
-
-
-def parse_input_file() -> list[list[int]]:
+def parse_input_file() -> list[UnfinishedSection]:
     result = []
     file_path = os.path.join(settings.BASE_DIR, settings.CONFIG_FILE)
     with open(file_path, "r") as conf_file:
-        for line in conf_file.readlines():
-            profile = []
-            for height in line.split(" "):
+        for profile_idx, line in enumerate(conf_file.readlines()):
+            for section_idx, height in enumerate(line.split(" ")):
                 height = int(height)
                 if height < 0 or height > settings.WALL_HEIGHT:
                     raise ValueError(f"{height} not in required range")
-                profile.append(height)
-            result.append(profile)
+                result.append(UnfinishedSection(
+                    height=height,
+                    profile=profile_idx + 1,
+                    order=section_idx + 1
+                ))
     return result

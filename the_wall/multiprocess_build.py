@@ -3,10 +3,8 @@ import logging
 import queue
 import time
 
-from django.conf import settings
-
-from .models import Section, Ledger
-from .utils import parse_input_file
+from .entities import UnfinishedSection
+from .use_cases import build_section
 
 logger = logging.getLogger(__name__)
 
@@ -19,88 +17,39 @@ def locked_log(message: str, lock: Lock) -> None:
         lock.release()
 
 
-def create_sections_queue(initial_heights_data: list[list[int]]) -> Queue:
-    """
-    Changes initial_heights_data data structure to list of tuples
-    tuple structure - (initial_section_height, profile_order, section_order)
-    these are arguments for BuildingTeam.assign_section method
-    and puts this tuples to the queue
-    """
-    queue_data = []
-    for profile_index, profile_data in enumerate(initial_heights_data):
-        queue_data.extend(
-            (height, profile_index + 1, section_index + 1)  # +1 because 1-based index in db
-            for section_index, height in enumerate(profile_data)
-            if height < settings.WALL_HEIGHT
-        )
-
-    unfinished_sections = Queue()
-    # sorted for prioritization - realm needs to build most vulnarable (lowest) sections first
-    for section_params in sorted(queue_data):
-        unfinished_sections.put(section_params)
-    return unfinished_sections
-
-
-class BuildingTeam:
-
-    def __init__(self, idx: int, name: str = ""):
-        self.idx: int = idx
-        self.name: str = name or f"Team {idx}"
-        self.day: int = 0
-        self.section: Section | None = None
-        self.current_height: int | None = None
-
-    def assign_section(self, height: int, profile: int, section: int) -> None:
-        if height < settings.WALL_HEIGHT:
-            self.current_height = height
-            self.section = Section.objects.create(profile=profile, order=section)
-
-    def build_section(self) -> None:
-        self.day += 1
-        self.current_height += 1
-        Ledger.objects.create(section=self.section, day=self.day)
-        time.sleep(.5)
-
-    def section_finished_message(self) -> str:
-        return f"Day {self.day}: {self.name} finished Profile " \
-               f"{self.section.profile} Section {self.section.order}"
-
-    def job_done_message(self) -> str:
-        return f"Day {self.day} was last worfing day for {self.name}"
-
-
-def team_process(team: BuildingTeam, unfinished_sections: Queue, lock: Lock):
+def build_process(team: int, unfinished_sections: Queue, lock: Lock) -> bool:
+    day: int = 1
     while True:
-        if team.section:
-            team.build_section()
-            if team.current_height >= settings.WALL_HEIGHT:
-                locked_log(team.section_finished_message(), lock)
-                team.section = None
-            continue
-
         try:
-            section_params = unfinished_sections.get_nowait()
+            section = unfinished_sections.get_nowait()
         except queue.Empty:
-            locked_log(team.job_done_message(), lock)
+            locked_log(f"Day {day}: No more work for team {team}", lock)
             break
         else:
-            team.assign_section(*section_params)
+            days_took = build_section(section, day=day)
+            day += days_took
+            time.sleep(.1 * days_took)
+            locked_log(_section_finished_message(section, day - 1, team), lock)
     return True
 
 
-def build_wall_multiprocess(teams_count: int):
+def build_wall_multiprocess(sections: list[UnfinishedSection], teams_count: int) -> None:
     logger.info(f"\n==== Building wall with {teams_count} teams ====")
 
     lock = Lock()
     processes = []
-    wall_data = parse_input_file()
-    unfinished_sections = create_sections_queue(wall_data)
-    teams = [BuildingTeam(i) for i in range(teams_count)]
+    sections_queue = Queue()
+    for section in sorted(sections, key=lambda s: s.height):
+        sections_queue.put(section)
 
-    for team in teams:
-        p = Process(target=team_process, args=(team, unfinished_sections, lock))
+    for team in range(teams_count):
+        p = Process(target=build_process, args=(team, sections_queue, lock))
         processes.append(p)
         p.start()
 
     for p in processes:
         p.join()
+
+
+def _section_finished_message(section: UnfinishedSection, day: int, team: int) -> str:
+    return f"Day {day}: Team {team} finished Profile {section.profile} Section {section.order}"

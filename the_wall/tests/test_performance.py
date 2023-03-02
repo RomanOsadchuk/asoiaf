@@ -5,7 +5,7 @@ from django.test import TestCase
 from django.urls import reverse
 
 from the_wall.models import Section
-from the_wall.utils import build_wall
+from the_wall.use_cases import build_wall
 
 
 def generate_data(profiles: int = 100, sections: int = 2000) -> list[list[int]]:
