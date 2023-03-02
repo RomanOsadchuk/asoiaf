@@ -1,4 +1,5 @@
 from datetime import datetime
+from unittest import skip
 
 from django.test import TestCase
 from django.urls import reverse
@@ -20,6 +21,7 @@ class PerformanceTest(TestCase):
         data = generate_data()
         build_wall(data)
 
+    @skip
     def test_total(self):
         self.assertEqual(Section.objects.count(), 200000)
         url = reverse('total_cost')

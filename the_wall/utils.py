@@ -14,17 +14,9 @@ def build_wall(initial_heights_data: list[list[int]]):
         for j, height in enumerate(profile_data):
             # profiles and sections order starts from 1 - therefore +1
             section = Section.objects.create(profile=i+1, order=j+1)
-            items = _ledger_entries_from_height(section, height)
-            Ledger.objects.bulk_create(items)
-
-
-def _ledger_entries_from_height(section: Section, height: int) -> list[Ledger]:
-    """
-    Creates ledger entries for a given section with given initial height
-    Building process starts from day 1, ends when height reachs WALL_HEIGHT
-    """
-    bulding_days = range(1, settings.WALL_HEIGHT - height + 1)
-    return [Ledger(section=section, day=d) for d in bulding_days]
+            bulding_days = range(1, settings.WALL_HEIGHT - height + 1)
+            records = [Ledger(section=section, day=d) for d in bulding_days]
+            Ledger.objects.bulk_create(records)
 
 
 def parse_input_file() -> list[list[int]]:
