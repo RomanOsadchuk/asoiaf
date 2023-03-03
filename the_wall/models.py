@@ -4,28 +4,13 @@ YARDS_PER_FOOT = 195
 PRICE_PER_YARD = 1900
 
 
-class SectionManager(models.Manager):
-
-    def yards_on_day(self, profile: int, day: int) -> int:
-        query_set = self.filter(profile=profile)
-        return sum(section.yards_on_day(day) for section in query_set)
-
-    def cost_by_day(self, profile: int = None, day: int = None) -> int:
-        query_set = self.filter(profile=profile) if profile else self.all()
-        if not day:
-            return sum(section.cost_total() for section in query_set)
-        return sum(section.cost_by_day(day) for section in query_set)
-
-
 class Section(models.Model):
     profile = models.PositiveIntegerField()
     order = models.PositiveIntegerField()
     building_days_str = models.CharField(max_length=200)
 
-    objects = SectionManager()
-
     class Meta:
-        unique_together = ['profile', 'order']
+        unique_together = ["profile", "order"]
 
     def __str__(self) -> str:
         return f"Profile {self.profile} Section {self.order}"

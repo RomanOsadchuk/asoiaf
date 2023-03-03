@@ -1,34 +1,31 @@
 from django.http import Http404, JsonResponse
-from .models import Section
+
+from .use_cases import count_cost_by_day, count_ice_on_day, profile_exists
 
 
 def profile_ice_on_day(request, profile: int, day: int) -> JsonResponse:
-    if not Section.objects.filter(profile=profile).exists():
+    """View for ice amount spent on building given profile ON a given day"""
+    if not profile_exists(profile=profile):
         raise Http404("Profile does not exist")
-    ice_amount = Section.objects.yards_on_day(profile=profile, day=day)
-    result = {"ice_amount": ice_amount, "day": day}
-    return JsonResponse(result)
+    ice_amount = count_ice_on_day(profile=profile, day=day)
+    return JsonResponse({"ice_amount": ice_amount, "day": day})
 
 
 def profile_cost_by_day(request, profile: int, day: int) -> JsonResponse:
-    if not Section.objects.filter(profile=profile).exists():
+    """View for accumulated cost spent on given profile BY a given day"""
+    if not profile_exists(profile=profile):
         raise Http404("Profile does not exist")
-    cost = Section.objects.cost_by_day(profile=profile, day=day)
-    result = {"day": day, "cost": cost}
-    return JsonResponse(result)
+    cost = count_cost_by_day(profile=profile, day=day)
+    return JsonResponse({"day": day, "cost": cost})
 
 
 def total_cost_by_day(request, day: int) -> JsonResponse:
-    if not Section.objects.exists():
-        raise Http404("The wall does not exist")
-    cost = Section.objects.cost_by_day(profile=None, day=day)
-    result = {"day": day, "cost": cost}
-    return JsonResponse(result)
+    """View for accumulated cost spent on the wall BY a given day"""
+    cost = count_cost_by_day(profile=None, day=day)
+    return JsonResponse({"day": day, "cost": cost})
 
 
 def total_cost(request) -> JsonResponse:
-    if not Section.objects.exists():
-        raise Http404("The wall does not exist")
-    cost = Section.objects.cost_by_day(profile=None, day=None)
-    result = {"day": None, "cost": cost}
-    return JsonResponse(result)
+    """View for total accumulated cost spent on the wall"""
+    cost = count_cost_by_day(profile=None, day=None)
+    return JsonResponse({"day": None, "cost": cost})
