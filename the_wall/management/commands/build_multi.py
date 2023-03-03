@@ -16,4 +16,4 @@ class Command(BaseCommand):
         teams_count = options["teams_count"]
         unfinished_sections = parse_input_file()
         build_wall_multiprocess(unfinished_sections, teams_count)
-        self.stdout.write("The wall has been built", ending='\n')
+        self.stdout.write("The wall has been built", ending="\n")

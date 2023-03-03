@@ -15,6 +15,11 @@ def build_wall(unfinished_sections: list[UnfinishedSection]) -> None:
 
 
 def build_section(data: UnfinishedSection, day: int = 1) -> int:
+    """
+    Day parameter represents on what day section building is started
+    Calculates how many days are needed to complete input section and returns it
+    Creates database records for this section and ledger records on what days it bas built
+    """
     days_needed = settings.WALL_HEIGHT - data.height
     days_range = range(day, days_needed + day)
     section = Section.objects.create(profile=data.profile, order=data.order)

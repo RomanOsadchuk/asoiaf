@@ -5,6 +5,11 @@ from .entities import UnfinishedSection
 
 
 def parse_input_file() -> list[UnfinishedSection]:
+    """
+    Adaps data from input file to list of UnfinishedSections
+    In input file every line represents one profile
+    With section heights separated with space char
+    """
     result = []
     file_path = os.path.join(settings.BASE_DIR, settings.CONFIG_FILE)
     with open(file_path, "r") as conf_file:
@@ -15,7 +20,7 @@ def parse_input_file() -> list[UnfinishedSection]:
                     raise ValueError(f"{height} not in required range")
                 result.append(UnfinishedSection(
                     height=height,
-                    profile=profile_idx + 1,
+                    profile=profile_idx + 1,  # 1-based index in UnfinishedSections
                     order=section_idx + 1
                 ))
     return result

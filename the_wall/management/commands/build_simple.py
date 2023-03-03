@@ -12,4 +12,4 @@ class Command(BaseCommand):
         Section.objects.all().delete()
         input_data = parse_input_file()
         build_wall(input_data)
-        self.stdout.write("The wall has been built", ending='\n')
+        self.stdout.write("The wall has been built", ending="\n")

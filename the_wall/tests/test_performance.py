@@ -4,14 +4,20 @@ from unittest import skip
 from django.test import TestCase
 from django.urls import reverse
 
+from the_wall.entities import UnfinishedSection
 from the_wall.models import Section
 from the_wall.use_cases import build_wall
 
 
-def generate_data(profiles: int = 100, sections: int = 2000) -> list[list[int]]:
+def generate_data(profiles: int = 100, sections: int = 2000) -> list[UnfinishedSection]:
     result = []
     for i in range(profiles):
-        result.append([5 + j % 20 for j in range(sections)])
+        for j in range(sections):
+            result.append(UnfinishedSection(
+                height=5 + j % 20,
+                profile=i + 1,
+                order=j + 1
+            ))
     return result
 
 
@@ -24,7 +30,7 @@ class PerformanceTest(TestCase):
     @skip
     def test_total(self):
         self.assertEqual(Section.objects.count(), 200000)
-        url = reverse('total_cost')
+        url = reverse("total_cost")
         start = datetime.now()
         response = self.client.get(url)
         end = datetime.now()
