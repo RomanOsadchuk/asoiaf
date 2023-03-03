@@ -56,36 +56,3 @@ Day 22: Team 3 finished Profile 1 Section 1
 Day 23: No more work for team 3
 Day 24: Team 0 finished Profile 3 Section 4
 Day 25: No more work for team 0
-Internal Server Error: /wall/profiles/1/overview/1/
-Traceback (most recent call last):
-  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
-    response = get_response(request)
-  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/home/roman/Projects/asoiaf/the_wall/views.py", line 18, in profile_cost_by_day
-    cost = count_cost_by_day(profile=profile, day=day)
-  File "/home/roman/Projects/asoiaf/the_wall/use_cases.py", line 34, in count_cost_by_day
-    query_set = Section.objects.objects.all()
-AttributeError: 'Manager' object has no attribute 'objects'
-Internal Server Error: /wall/profiles/overview/
-Traceback (most recent call last):
-  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
-    response = get_response(request)
-  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/home/roman/Projects/asoiaf/the_wall/views.py", line 30, in total_cost
-    cost = count_cost_by_day(profile=None, day=None)
-  File "/home/roman/Projects/asoiaf/the_wall/use_cases.py", line 34, in count_cost_by_day
-    query_set = Section.objects.objects.all()
-AttributeError: 'Manager' object has no attribute 'objects'
-Internal Server Error: /wall/profiles/overview/1/
-Traceback (most recent call last):
-  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
-    response = get_response(request)
-  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/home/roman/Projects/asoiaf/the_wall/views.py", line 24, in total_cost_by_day
-    cost = count_cost_by_day(profile=None, day=day)
-  File "/home/roman/Projects/asoiaf/the_wall/use_cases.py", line 34, in count_cost_by_day
-    query_set = Section.objects.objects.all()
-AttributeError: 'Manager' object has no attribute 'objects'
