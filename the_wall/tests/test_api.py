@@ -2,7 +2,7 @@ from django.test import TestCase
 from django.urls import reverse
 
 from the_wall.entities import UnfinishedSection
-from the_wall.use_cases import build_wall
+from the_wall.use_cases import build_wall, build_section
 
 
 DATA = [
@@ -48,3 +48,17 @@ class EndpointsTests(TestCase):
         url = reverse("total_cost")
         response = self.client.get(url)
         self.assertEqual(response.json(), {"day": None, "cost": 32233500})
+
+
+class TestBuildingFromLaterDay(TestCase):
+
+    def setUp(self) -> None:
+        section = UnfinishedSection(height=27, profile=1, order=1)
+        build_section(section, day=11)
+
+    def test_profile_cost_by_day(self):
+        params = [(1, 10, 0), (1, 11, 370500), (1, 13, 1111500), (1, 14, 1111500)]
+        for profile, day, cost in params:
+            url = reverse("profile_cost_by_day", args=(profile, day))
+            response = self.client.get(url)
+            self.assertEqual(response.json(), {"day": day, "cost": cost})

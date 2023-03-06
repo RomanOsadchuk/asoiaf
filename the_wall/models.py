@@ -2,12 +2,10 @@ from django.db import models
 
 
 class Section(models.Model):
-    """
-    Represents one section in the wall.
-    It's order in profile and what profile it belongs to
-    """
-    order = models.PositiveIntegerField(help_text="Order of section in profile")
-    profile = models.PositiveIntegerField(help_text="Order of profile in the wall")
+    profile = models.PositiveIntegerField(help_text="order of profile in the wall")
+    order = models.PositiveIntegerField(help_text="order of sectin in profile")
+    start_day = models.PositiveIntegerField(help_text="First day of building")
+    end_day = models.PositiveIntegerField(help_text="Last day of building")
 
     class Meta:
         unique_together = ["profile", "order"]
@@ -16,14 +14,13 @@ class Section(models.Model):
         return f"Profile {self.profile} Section {self.order}"
 
 
-class Ledger(models.Model):
+class CountDaysByDay(models.Func):
     """
-    Record in ledger represents if section was built on given day
-    If NO record for section S and day D - section S was NOT built on day D
+    Returns function that counts how many building days were spent on section
+    prior to day from extra params. Therefore - min(end_day, {day})
     """
-    section = models.ForeignKey(Section, on_delete=models.CASCADE)
-    day = models.PositiveIntegerField()
 
-    class Meta:
-        indexes = [models.Index(fields=["day"])]
-        unique_together = ["section", "day"]
+    def as_sqlite(self, compiler, connection, **extra_context):
+        day = self.extra["day"]  # no injection because day is integer
+        template = f"min(end_day, {day}) - start_day + 1"
+        return super().as_sql(compiler, connection, template=template, **extra_context)

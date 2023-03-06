@@ -56,3 +56,752 @@ Day 22: Team 3 finished Profile 1 Section 1
 Day 23: No more work for team 3
 Day 24: Team 0 finished Profile 3 Section 4
 Day 25: No more work for team 0
+Watching for file changes with StatReloader
+/home/roman/Projects/asoiaf/the_wall/use_cases.py changed, reloading.
+Watching for file changes with StatReloader
+/home/roman/Projects/asoiaf/the_wall/use_cases.py changed, reloading.
+Watching for file changes with StatReloader
+/home/roman/Projects/asoiaf/the_wall/use_cases.py changed, reloading.
+Watching for file changes with StatReloader
+/home/roman/Projects/asoiaf/the_wall/use_cases.py changed, reloading.
+Watching for file changes with StatReloader
+/home/roman/Projects/asoiaf/the_wall/use_cases.py changed, reloading.
+Watching for file changes with StatReloader
+/home/roman/Projects/asoiaf/the_wall/use_cases.py changed, reloading.
+Watching for file changes with StatReloader
+/home/roman/Projects/asoiaf/the_wall/use_cases.py changed, reloading.
+Watching for file changes with StatReloader
+/home/roman/Projects/asoiaf/the_wall/use_cases.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /wall/profiles/1/days/1/
+Traceback (most recent call last):
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/roman/Projects/asoiaf/the_wall/views.py", line 10, in profile_ice_on_day
+    ice_amount = count_ice_on_day(profile=profile, day=day)
+  File "/home/roman/Projects/asoiaf/the_wall/use_cases.py", line 53, in count_ice_on_day
+    for row in res:
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 2057, in __iter__
+    self._fetch_all()
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 2044, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 2071, in iterator
+    yield from RawModelIterable(self)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 164, in __iter__
+    raise exceptions.FieldDoesNotExist(
+django.core.exceptions.FieldDoesNotExist: Raw query must include the primary key
+/home/roman/Projects/asoiaf/the_wall/use_cases.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /wall/profiles/1/days/1/
+Traceback (most recent call last):
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/sqlite3/base.py", line 357, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such column: pk
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/roman/Projects/asoiaf/the_wall/views.py", line 10, in profile_ice_on_day
+    ice_amount = count_ice_on_day(profile=profile, day=day)
+  File "/home/roman/Projects/asoiaf/the_wall/use_cases.py", line 53, in count_ice_on_day
+    for row in res:
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 2057, in __iter__
+    self._fetch_all()
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 2044, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 2071, in iterator
+    yield from RawModelIterable(self)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 154, in __iter__
+    query_iterator = iter(query)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 112, in __iter__
+    self._execute_query()
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 152, in _execute_query
+    self.cursor.execute(self.sql, params)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/sqlite3/base.py", line 357, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such column: pk
+/home/roman/Projects/asoiaf/the_wall/use_cases.py changed, reloading.
+Watching for file changes with StatReloader
+/home/roman/Projects/asoiaf/the_wall/use_cases.py changed, reloading.
+Watching for file changes with StatReloader
+/home/roman/Projects/asoiaf/the_wall/use_cases.py changed, reloading.
+Watching for file changes with StatReloader
+/home/roman/Projects/asoiaf/the_wall/use_cases.py changed, reloading.
+Watching for file changes with StatReloader
+/home/roman/Projects/asoiaf/the_wall/use_cases.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /wall/profiles/1/days/10/
+Traceback (most recent call last):
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/sqlite3/base.py", line 357, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such column: strat_day
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/roman/Projects/asoiaf/the_wall/views.py", line 10, in profile_ice_on_day
+    ice_amount = count_ice_on_day(profile=profile, day=day)
+  File "/home/roman/Projects/asoiaf/the_wall/use_cases.py", line 55, in count_ice_on_day
+    for row in res:
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 2057, in __iter__
+    self._fetch_all()
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 2044, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 2071, in iterator
+    yield from RawModelIterable(self)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 154, in __iter__
+    query_iterator = iter(query)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 112, in __iter__
+    self._execute_query()
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 152, in _execute_query
+    self.cursor.execute(self.sql, params)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/sqlite3/base.py", line 357, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such column: strat_day
+/home/roman/Projects/asoiaf/the_wall/use_cases.py changed, reloading.
+Watching for file changes with StatReloader
+/home/roman/Projects/asoiaf/the_wall/use_cases.py changed, reloading.
+Watching for file changes with StatReloader
+/home/roman/Projects/asoiaf/the_wall/use_cases.py changed, reloading.
+Watching for file changes with StatReloader
+/home/roman/Projects/asoiaf/the_wall/use_cases.py changed, reloading.
+Watching for file changes with StatReloader
+/home/roman/Projects/asoiaf/the_wall/use_cases.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /wall/profiles/1/days/10/
+Traceback (most recent call last):
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/roman/Projects/asoiaf/the_wall/views.py", line 10, in profile_ice_on_day
+    ice_amount = count_ice_on_day(profile=profile, day=day)
+  File "/home/roman/Projects/asoiaf/the_wall/use_cases.py", line 54, in count_ice_on_day
+    res = Section.objects.raw(raw_sql).sum("days_took")
+AttributeError: 'RawQuerySet' object has no attribute 'sum'
+/home/roman/Projects/asoiaf/the_wall/use_cases.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /wall/profiles/1/days/10/
+Traceback (most recent call last):
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/roman/Projects/asoiaf/the_wall/views.py", line 10, in profile_ice_on_day
+    ice_amount = count_ice_on_day(profile=profile, day=day)
+  File "/home/roman/Projects/asoiaf/the_wall/use_cases.py", line 54, in count_ice_on_day
+    res = Section.objects.raw(raw_sql).sum("days_took")
+AttributeError: 'RawQuerySet' object has no attribute 'sum'
+/home/roman/Projects/asoiaf/the_wall/use_cases.py changed, reloading.
+Watching for file changes with StatReloader
+/home/roman/Projects/asoiaf/the_wall/use_cases.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /wall/profiles/1/days/10/
+Traceback (most recent call last):
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/roman/Projects/asoiaf/the_wall/views.py", line 10, in profile_ice_on_day
+    ice_amount = count_ice_on_day(profile=profile, day=day)
+  File "/home/roman/Projects/asoiaf/the_wall/use_cases.py", line 56, in count_ice_on_day
+    print("!!!", res.days_took)
+AttributeError: 'RawQuerySet' object has no attribute 'days_took'
+/home/roman/Projects/asoiaf/the_wall/use_cases.py changed, reloading.
+Watching for file changes with StatReloader
+/home/roman/Projects/asoiaf/the_wall/use_cases.py changed, reloading.
+Watching for file changes with StatReloader
+/home/roman/Projects/asoiaf/the_wall/models.py changed, reloading.
+Watching for file changes with StatReloader
+/home/roman/Projects/asoiaf/the_wall/models.py changed, reloading.
+Watching for file changes with StatReloader
+/home/roman/Projects/asoiaf/the_wall/models.py changed, reloading.
+Watching for file changes with StatReloader
+/home/roman/Projects/asoiaf/the_wall/use_cases.py changed, reloading.
+Watching for file changes with StatReloader
+/home/roman/Projects/asoiaf/the_wall/use_cases.py changed, reloading.
+Watching for file changes with StatReloader
+/home/roman/Projects/asoiaf/the_wall/use_cases.py changed, reloading.
+Watching for file changes with StatReloader
+/home/roman/Projects/asoiaf/the_wall/use_cases.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /wall/profiles/1/days/10/
+Traceback (most recent call last):
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/roman/Projects/asoiaf/the_wall/views.py", line 10, in profile_ice_on_day
+    ice_amount = count_ice_on_day(profile=profile, day=day)
+  File "/home/roman/Projects/asoiaf/the_wall/use_cases.py", line 57, in count_ice_on_day
+    for r in res:
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 394, in __iter__
+    self._fetch_all()
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 1867, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 87, in __iter__
+    results = compiler.execute_sql(
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1385, in execute_sql
+    sql, params = self.as_sql()
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 593, in as_sql
+    extra_select, order_by, group_by = self.pre_sql_setup()
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 71, in pre_sql_setup
+    self.setup_query()
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 62, in setup_query
+    self.select, self.klass_info, self.annotation_col_map = self.get_select()
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 305, in get_select
+    sql, params = col.select_format(self, sql, params)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/expressions.py", line 456, in select_format
+    if hasattr(self.output_field, "select_format"):
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/expressions.py", line 298, in output_field
+    raise FieldError("Cannot resolve expression type, unknown output_field")
+django.core.exceptions.FieldError: Cannot resolve expression type, unknown output_field
+/home/roman/Projects/asoiaf/the_wall/use_cases.py changed, reloading.
+Watching for file changes with StatReloader
+/home/roman/Projects/asoiaf/the_wall/use_cases.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /wall/profiles/1/days/10/
+Traceback (most recent call last):
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/sqlite3/base.py", line 357, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: near "%": syntax error
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 114, in debug_sql
+    yield
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/sqlite3/base.py", line 357, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: near "%": syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/roman/Projects/asoiaf/the_wall/views.py", line 10, in profile_ice_on_day
+    ice_amount = count_ice_on_day(profile=profile, day=day)
+  File "/home/roman/Projects/asoiaf/the_wall/use_cases.py", line 58, in count_ice_on_day
+    for r in res:
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 394, in __iter__
+    self._fetch_all()
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 1867, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 87, in __iter__
+    results = compiler.execute_sql(
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1398, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 101, in execute
+    with self.debug_sql(sql, params, use_last_executed_query=True):
+  File "/usr/local/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 119, in debug_sql
+    sql = self.db.ops.last_executed_query(self.cursor, sql, params)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/sqlite3/operations.py", line 183, in last_executed_query
+    return sql % params
+TypeError: format requires a mapping
+/home/roman/Projects/asoiaf/the_wall/use_cases.py changed, reloading.
+Watching for file changes with StatReloader
+/home/roman/Projects/asoiaf/the_wall/use_cases.py changed, reloading.
+Watching for file changes with StatReloader
+/home/roman/Projects/asoiaf/the_wall/use_cases.py changed, reloading.
+Watching for file changes with StatReloader
+/home/roman/Projects/asoiaf/the_wall/use_cases.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /wall/profiles/1/days/10/
+Traceback (most recent call last):
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/roman/Projects/asoiaf/the_wall/views.py", line 10, in profile_ice_on_day
+    ice_amount = count_ice_on_day(profile=profile, day=day)
+  File "/home/roman/Projects/asoiaf/the_wall/use_cases.py", line 58, in count_ice_on_day
+    res = qs.annotate(days_took=min(F("end_day"), day) - F("start_day") + 1)
+TypeError: '<' not supported between instances of 'int' and 'F'
+/home/roman/Projects/asoiaf/the_wall/use_cases.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /wall/profiles/1/days/10/
+Traceback (most recent call last):
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/sqlite3/base.py", line 357, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: near "%": syntax error
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 114, in debug_sql
+    yield
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/sqlite3/base.py", line 357, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: near "%": syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/roman/Projects/asoiaf/the_wall/views.py", line 10, in profile_ice_on_day
+    ice_amount = count_ice_on_day(profile=profile, day=day)
+  File "/home/roman/Projects/asoiaf/the_wall/use_cases.py", line 58, in count_ice_on_day
+    for r in res:
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 394, in __iter__
+    self._fetch_all()
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 1867, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 87, in __iter__
+    results = compiler.execute_sql(
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1398, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 101, in execute
+    with self.debug_sql(sql, params, use_last_executed_query=True):
+  File "/usr/local/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 119, in debug_sql
+    sql = self.db.ops.last_executed_query(self.cursor, sql, params)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/sqlite3/operations.py", line 183, in last_executed_query
+    return sql % params
+TypeError: format requires a mapping
+/home/roman/Projects/asoiaf/the_wall/models.py changed, reloading.
+Watching for file changes with StatReloader
+/home/roman/Projects/asoiaf/the_wall/models.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /wall/profiles/1/days/10/
+Traceback (most recent call last):
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/sqlite3/base.py", line 357, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: near "%": syntax error
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 114, in debug_sql
+    yield
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/sqlite3/base.py", line 357, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: near "%": syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/roman/Projects/asoiaf/the_wall/views.py", line 10, in profile_ice_on_day
+    ice_amount = count_ice_on_day(profile=profile, day=day)
+  File "/home/roman/Projects/asoiaf/the_wall/use_cases.py", line 58, in count_ice_on_day
+    for r in res:
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 394, in __iter__
+    self._fetch_all()
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 1867, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 87, in __iter__
+    results = compiler.execute_sql(
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1398, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 101, in execute
+    with self.debug_sql(sql, params, use_last_executed_query=True):
+  File "/usr/local/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 119, in debug_sql
+    sql = self.db.ops.last_executed_query(self.cursor, sql, params)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/backends/sqlite3/operations.py", line 183, in last_executed_query
+    return sql % params
+TypeError: format requires a mapping
+/home/roman/Projects/asoiaf/the_wall/models.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /wall/profiles/1/days/10/
+Traceback (most recent call last):
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/roman/Projects/asoiaf/the_wall/views.py", line 10, in profile_ice_on_day
+    ice_amount = count_ice_on_day(profile=profile, day=day)
+  File "/home/roman/Projects/asoiaf/the_wall/use_cases.py", line 58, in count_ice_on_day
+    for r in res:
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 394, in __iter__
+    self._fetch_all()
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 1867, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 87, in __iter__
+    results = compiler.execute_sql(
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1385, in execute_sql
+    sql, params = self.as_sql()
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 593, in as_sql
+    extra_select, order_by, group_by = self.pre_sql_setup()
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 71, in pre_sql_setup
+    self.setup_query()
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 62, in setup_query
+    self.select, self.klass_info, self.annotation_col_map = self.get_select()
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 294, in get_select
+    sql, params = self.compile(col)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 504, in compile
+    sql, params = vendor_impl(self, self.connection)
+  File "/home/roman/Projects/asoiaf/the_wall/models.py", line 44, in as_sqlite
+    template = self.template.format(extra_context["day"])
+KeyError: 'day'
+/home/roman/Projects/asoiaf/the_wall/models.py changed, reloading.
+Watching for file changes with StatReloader
+/home/roman/Projects/asoiaf/the_wall/use_cases.py changed, reloading.
+Watching for file changes with StatReloader
+/home/roman/Projects/asoiaf/the_wall/models.py changed, reloading.
+Watching for file changes with StatReloader
+/home/roman/Projects/asoiaf/the_wall/models.py changed, reloading.
+Watching for file changes with StatReloader
+/home/roman/Projects/asoiaf/the_wall/models.py changed, reloading.
+Watching for file changes with StatReloader
+/home/roman/Projects/asoiaf/the_wall/models.py changed, reloading.
+Watching for file changes with StatReloader
+/home/roman/Projects/asoiaf/the_wall/use_cases.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /wall/profiles/1/days/10/
+Traceback (most recent call last):
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/roman/Projects/asoiaf/the_wall/views.py", line 10, in profile_ice_on_day
+    ice_amount = count_ice_on_day(profile=profile, day=day)
+  File "/home/roman/Projects/asoiaf/the_wall/use_cases.py", line 58, in count_ice_on_day
+    total = res.sum("days_took")
+AttributeError: 'QuerySet' object has no attribute 'sum'
+/home/roman/Projects/asoiaf/the_wall/use_cases.py changed, reloading.
+Watching for file changes with StatReloader
+/home/roman/Projects/asoiaf/the_wall/use_cases.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /wall/profiles/1/days/10/
+Traceback (most recent call last):
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/roman/Projects/asoiaf/the_wall/views.py", line 10, in profile_ice_on_day
+    ice_amount = count_ice_on_day(profile=profile, day=day)
+  File "/home/roman/Projects/asoiaf/the_wall/use_cases.py", line 58, in count_ice_on_day
+    total = qs.aggregate(models.Sum('field_name'))
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 590, in aggregate
+    query.add_annotation(aggregate_expr, alias, is_summary=True)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1119, in add_annotation
+    annotation = annotation.resolve_expression(
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/aggregates.py", line 64, in resolve_expression
+    c = super().resolve_expression(query, allow_joins, reuse, summarize)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/expressions.py", line 920, in resolve_expression
+    c.source_expressions[pos] = arg.resolve_expression(
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/expressions.py", line 809, in resolve_expression
+    return query.resolve_ref(self.name, allow_joins, reuse, summarize)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1957, in resolve_ref
+    join_info = self.setup_joins(
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1808, in setup_joins
+    path, final_field, targets, rest = self.names_to_path(
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1709, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'field_name' into field. Choices are: end_day, id, order, profile, start_day
+/home/roman/Projects/asoiaf/the_wall/use_cases.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /wall/profiles/1/days/10/
+Traceback (most recent call last):
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/roman/Projects/asoiaf/the_wall/views.py", line 10, in profile_ice_on_day
+    ice_amount = count_ice_on_day(profile=profile, day=day)
+  File "/home/roman/Projects/asoiaf/the_wall/use_cases.py", line 58, in count_ice_on_day
+    total = qs.aggregate(models.Sum('days_took'))
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 590, in aggregate
+    query.add_annotation(aggregate_expr, alias, is_summary=True)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1119, in add_annotation
+    annotation = annotation.resolve_expression(
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/aggregates.py", line 64, in resolve_expression
+    c = super().resolve_expression(query, allow_joins, reuse, summarize)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/expressions.py", line 920, in resolve_expression
+    c.source_expressions[pos] = arg.resolve_expression(
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/expressions.py", line 809, in resolve_expression
+    return query.resolve_ref(self.name, allow_joins, reuse, summarize)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1957, in resolve_ref
+    join_info = self.setup_joins(
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1808, in setup_joins
+    path, final_field, targets, rest = self.names_to_path(
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1709, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'days_took' into field. Choices are: end_day, id, order, profile, start_day
+/home/roman/Projects/asoiaf/the_wall/use_cases.py changed, reloading.
+Watching for file changes with StatReloader
+/home/roman/Projects/asoiaf/the_wall/use_cases.py changed, reloading.
+Watching for file changes with StatReloader
+/home/roman/Projects/asoiaf/the_wall/use_cases.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /wall/profiles/overview/
+Traceback (most recent call last):
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/roman/Projects/asoiaf/the_wall/views.py", line 30, in total_cost
+    cost = count_cost_by_day(profile=None, day=None)
+  File "/home/roman/Projects/asoiaf/the_wall/use_cases.py", line 39, in count_cost_by_day
+    query_set = Section.objects.filter(profile=profile, start_day__lte=day)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 1421, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 1439, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 1446, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1532, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1562, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1478, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1308, in build_lookup
+    raise ValueError("Cannot use None as a query value")
+ValueError: Cannot use None as a query value
+Internal Server Error: /wall/profiles/overview/1/
+Traceback (most recent call last):
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/roman/Projects/asoiaf/the_wall/views.py", line 24, in total_cost_by_day
+    cost = count_cost_by_day(profile=None, day=day)
+  File "/home/roman/Projects/asoiaf/the_wall/use_cases.py", line 42, in count_cost_by_day
+    return work_days * YARDS_PER_FOOT * PRICE_PER_YARD
+TypeError: unsupported operand type(s) for *: 'NoneType' and 'int'
+Internal Server Error: /wall/profiles/overview/
+Traceback (most recent call last):
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/roman/Projects/asoiaf/the_wall/views.py", line 30, in total_cost
+    cost = count_cost_by_day(profile=None, day=None)
+  File "/home/roman/Projects/asoiaf/the_wall/use_cases.py", line 40, in count_cost_by_day
+    query_set = Section.objects.filter(profile=profile, start_day__lte=day)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 1421, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 1439, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 1446, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1532, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1562, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1478, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1308, in build_lookup
+    raise ValueError("Cannot use None as a query value")
+ValueError: Cannot use None as a query value
+Internal Server Error: /wall/profiles/overview/1/
+Traceback (most recent call last):
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/roman/Projects/asoiaf/the_wall/views.py", line 24, in total_cost_by_day
+    cost = count_cost_by_day(profile=None, day=day)
+  File "/home/roman/Projects/asoiaf/the_wall/use_cases.py", line 46, in count_cost_by_day
+    return work_days * YARDS_PER_FOOT * PRICE_PER_YARD
+TypeError: unsupported operand type(s) for *: 'NoneType' and 'int'
+Internal Server Error: /wall/profiles/overview/
+Traceback (most recent call last):
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/roman/Projects/asoiaf/the_wall/views.py", line 30, in total_cost
+    cost = count_cost_by_day(profile=None, day=None)
+  File "/home/roman/Projects/asoiaf/the_wall/use_cases.py", line 40, in count_cost_by_day
+    query_set = Section.objects.filter(profile=profile, start_day__lte=day)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 1421, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 1439, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 1446, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1532, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1562, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1478, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1308, in build_lookup
+    raise ValueError("Cannot use None as a query value")
+ValueError: Cannot use None as a query value
+Internal Server Error: /wall/profiles/overview/1/
+Traceback (most recent call last):
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/roman/Projects/asoiaf/the_wall/views.py", line 24, in total_cost_by_day
+    cost = count_cost_by_day(profile=None, day=day)
+  File "/home/roman/Projects/asoiaf/the_wall/use_cases.py", line 46, in count_cost_by_day
+    return work_days * YARDS_PER_FOOT * PRICE_PER_YARD
+TypeError: unsupported operand type(s) for *: 'NoneType' and 'int'
+Watching for file changes with StatReloader
+Internal Server Error: /wall/profiles/overview/10/
+Traceback (most recent call last):
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/roman/Projects/asoiaf/the_wall/views.py", line 24, in total_cost_by_day
+    cost = count_cost_by_day(profile=None, day=day)
+  File "/home/roman/Projects/asoiaf/the_wall/use_cases.py", line 46, in count_cost_by_day
+    return work_days * YARDS_PER_FOOT * PRICE_PER_YARD
+TypeError: unsupported operand type(s) for *: 'NoneType' and 'int'
+/home/roman/Projects/asoiaf/the_wall/use_cases.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+/home/roman/Projects/asoiaf/the_wall/use_cases.py changed, reloading.
+Watching for file changes with StatReloader
+/home/roman/Projects/asoiaf/the_wall/use_cases.py changed, reloading.
+Watching for file changes with StatReloader
+/home/roman/Projects/asoiaf/the_wall/use_cases.py changed, reloading.
+Watching for file changes with StatReloader
+/home/roman/Projects/asoiaf/the_wall/use_cases.py changed, reloading.
+Watching for file changes with StatReloader
+/home/roman/Projects/asoiaf/the_wall/use_cases.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /wall/profiles/1/overview/1/
+Traceback (most recent call last):
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/roman/Projects/asoiaf/the_wall/views.py", line 18, in profile_cost_by_day
+    cost = count_cost_by_day(profile=profile, day=day)
+  File "/home/roman/Projects/asoiaf/the_wall/use_cases.py", line 48, in count_cost_by_day
+    work_days = query_set.aggregate(total=models.Sum(days_func))["total"]
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 605, in aggregate
+    return query.get_aggregation(self.db, kwargs)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 544, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1385, in execute_sql
+    sql, params = self.as_sql()
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 593, in as_sql
+    extra_select, order_by, group_by = self.pre_sql_setup()
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 71, in pre_sql_setup
+    self.setup_query()
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 62, in setup_query
+    self.select, self.klass_info, self.annotation_col_map = self.get_select()
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 305, in get_select
+    sql, params = col.select_format(self, sql, params)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/expressions.py", line 456, in select_format
+    if hasattr(self.output_field, "select_format"):
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/db/models/expressions.py", line 298, in output_field
+    raise FieldError("Cannot resolve expression type, unknown output_field")
+django.core.exceptions.FieldError: Cannot resolve expression type, unknown output_field
+/home/roman/Projects/asoiaf/the_wall/use_cases.py changed, reloading.
+Watching for file changes with StatReloader
+/home/roman/Projects/asoiaf/the_wall/models.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /wall/profiles/1/overview/10/
+Traceback (most recent call last):
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/roman/Projects/asoiaf/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/roman/Projects/asoiaf/the_wall/views.py", line 18, in profile_cost_by_day
+    cost = count_cost_by_day(profile=profile, day=day)
+  File "/home/roman/Projects/asoiaf/the_wall/use_cases.py", line 49, in count_cost_by_day
+    return work_days * YARDS_PER_FOOT * PRICE_PER_YARD
+TypeError: unsupported operand type(s) for *: 'NoneType' and 'int'
