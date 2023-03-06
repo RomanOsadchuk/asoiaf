@@ -56,3 +56,18 @@ Day 22: Team 3 finished Profile 1 Section 1
 Day 23: No more work for team 3
 Day 24: Team 0 finished Profile 3 Section 4
 Day 25: No more work for team 0
+Watching for file changes with StatReloader
+
+==== Building wall with 3 teams ====
+Day 13: BuildingTeam(name='Team 0', day=14, productivity=195, schedule=Schedule(work_days=5, rest_days=0)) finished Profile 2 Section 1
+Day 13: BuildingTeam(name='Team 2', day=14, productivity=195, schedule=Schedule(work_days=5, rest_days=0)) finished Profile 3 Section 3
+Day 13: BuildingTeam(name='Team 1', day=14, productivity=195, schedule=Schedule(work_days=5, rest_days=0)) finished Profile 3 Section 1
+Day 22: BuildingTeam(name='Team 1', day=23, productivity=195, schedule=Schedule(work_days=5, rest_days=0)) finished Profile 1 Section 1
+Day 24: BuildingTeam(name='Team 2', day=25, productivity=195, schedule=Schedule(work_days=5, rest_days=0)) finished Profile 3 Section 4
+Day 26: BuildingTeam(name='Team 0', day=27, productivity=195, schedule=Schedule(work_days=5, rest_days=0)) finished Profile 3 Section 5
+Day 28: BuildingTeam(name='Team 0', day=29, productivity=195, schedule=Schedule(work_days=5, rest_days=0)) finished Profile 1 Section 3
+Day 29: No more work for Team 0
+Day 29: BuildingTeam(name='Team 2', day=30, productivity=195, schedule=Schedule(work_days=5, rest_days=0)) finished Profile 1 Section 2
+Day 30: No more work for Team 2
+Day 30: BuildingTeam(name='Team 1', day=31, productivity=195, schedule=Schedule(work_days=5, rest_days=0)) finished Profile 3 Section 2
+Day 31: No more work for Team 1

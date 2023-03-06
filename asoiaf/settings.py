@@ -146,4 +146,3 @@ LOGGING = {
 
 # Constants
 CONFIG_FILE = "wall_config.txt"
-WALL_HEIGHT = 30
