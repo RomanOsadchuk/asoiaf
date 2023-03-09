@@ -1,11 +1,6 @@
-from django.conf import settings
-
-from .entities import UnfinishedSection
+from .entities import UnfinishedSection, BuildingTeam
 from .models import Section, Ledger
 
-YARDS_PER_FOOT = 195
-FEET_PER_DAY = 1
-YARDS_PER_DAY = YARDS_PER_FOOT * FEET_PER_DAY
 PRICE_PER_YARD = 1900
 
 
@@ -14,38 +9,25 @@ def build_wall(unfinished_sections: list[UnfinishedSection]) -> None:
         build_section(section)
 
 
-def build_section(data: UnfinishedSection, day: int = 1) -> int:
+def build_section(section_data: UnfinishedSection, team: BuildingTeam = None) -> int:
     """
-    Day parameter represents on what day section building is started
-    Calculates how many days are needed to complete input section and returns it
-    Creates database records for this section and ledger records on what days it bas built
+    Creates db records for UnfinishedSection built by BuildingTeam
+    returns amount of days spent on building
     """
-    days_needed = settings.WALL_HEIGHT - data.height
-    days_range = range(day, days_needed + day)
-    section = Section.objects.create(profile=data.profile, order=data.order)
-    Ledger.objects.bulk_create(Ledger(section=section, day=d) for d in days_range)
-    return days_needed
+    team = team or BuildingTeam("default team")
+    ledger_data = team.get_buid_data(section_data)
+    Section.save_entities(section_data=section_data, ledger_data=ledger_data)
+    return len(ledger_data)
 
 
 def count_cost_by_day(profile: int | None, day: int | None) -> int:
-    """
-    Counts how much was spent on building given profile accumulated by a given day
-    If profile is None - counts spends for entire wall
-    If day is None - counts total spent for all days
-    """
-    query_set = Ledger.objects.all()
-    if profile:
-        query_set = query_set.filter(section__profile=profile)
-    if day:
-        query_set = query_set.filter(day__lte=day)
-    return query_set.count() * YARDS_PER_DAY * PRICE_PER_YARD
+    ice_used = Ledger.count_ice_by_day(day=day, profile=profile)
+    return ice_used * PRICE_PER_YARD
 
 
 def count_ice_on_day(profile: int, day: int) -> int:
-    """Counts how many yards were built for a given profile on a given day"""
-    query_set = Ledger.objects.filter(section__profile=profile, day=day)
-    return query_set.count() * YARDS_PER_DAY
+    return Ledger.count_ice_on_day(day=day, profile=profile)
 
 
 def profile_exists(profile: int) -> bool:
-    return Section.objects.filter(profile=profile).exists()
+    return Section.check_profile(profile)

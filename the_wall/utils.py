@@ -1,7 +1,7 @@
 import os
 
 from django.conf import settings
-from .entities import UnfinishedSection
+from .entities import UnfinishedSection, REQUIRED_HEIGHT
 
 
 def parse_input_file() -> list[UnfinishedSection]:
@@ -16,7 +16,7 @@ def parse_input_file() -> list[UnfinishedSection]:
         for profile_idx, line in enumerate(conf_file.readlines()):
             for section_idx, height in enumerate(line.split(" ")):
                 height = int(height)
-                if height < 0 or height > settings.WALL_HEIGHT:
+                if height < 0 or height > REQUIRED_HEIGHT:
                     raise ValueError(f"{height} not in required range")
                 result.append(UnfinishedSection(
                     height=height,
