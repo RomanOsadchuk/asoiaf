@@ -1,5 +1,6 @@
 from django.db import models
-from .entities import UnfinishedSection
+from django.db.models import Sum
+from .entities import UnfinishedSection, LedgerRecord
 
 
 class Section(models.Model):
@@ -19,13 +20,21 @@ class Section(models.Model):
         return f"Profile {self.profile} Section {self.order}"
 
     @classmethod
-    def create_from_entity(cls, data: UnfinishedSection):
-        return cls.objects.create(
-            order=data.order,
-            profile=data.profile,
-            initial_height=data.height,
-            yards_per_foot=data.area
+    def save_entities(cls, section_data: UnfinishedSection, ledger_data: list[LedgerRecord]):
+        section = cls.objects.create(
+            order=section_data.order,
+            profile=section_data.profile,
+            initial_height=section_data.height,
+            yards_per_foot=section_data.area
         )
+        Ledger.objects.bulk_create(
+            Ledger(section=section, day=ld.day, team=ld.team_name, ice_used=ld.ice_used)
+            for ld in ledger_data
+        )
+
+    @classmethod
+    def check_profile(cls, profile: int) -> bool:
+        return cls.objects.filter(profile=profile).exists()
 
 
 class Ledger(models.Model):
@@ -41,3 +50,25 @@ class Ledger(models.Model):
     class Meta:
         indexes = [models.Index(fields=["day"])]
         unique_together = ["section", "day"]
+
+    @classmethod
+    def count_ice_on_day(cls, profile: int | None, day: int) -> int:
+        """Ice amount spent on profile or entire wall (if profile arg is None) on a given day"""
+        query_set = cls.objects.filter(day=day)
+        if profile:
+            query_set = query_set.filter(section__profile=profile)
+        return query_set.aggregate(total=Sum("ice_used"))["total"] or 0
+
+    @classmethod
+    def count_ice_by_day(cls, profile: int | None, day: int | None) -> int:
+        """
+        Ice amount spent on building given profile accumulated by a given day
+        If profile is None - counts spends for entire wall
+        If day is None - counts total spent for all days
+        """
+        query_set = cls.objects.all()
+        if profile:
+            query_set = query_set.filter(section__profile=profile)
+        if day:
+            query_set = query_set.filter(day__lte=day)
+        return query_set.aggregate(total=Sum("ice_used"))["total"] or 0

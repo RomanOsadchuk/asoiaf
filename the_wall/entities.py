@@ -18,12 +18,10 @@ class UnfinishedSection:
 
 
 @dataclass
-class Schedule:
-    work_days: int = 5
-    rest_days: int = 0
-
-    def is_working_day(self, day: int) -> bool:
-        return day % (self.work_days + self.rest_days) < self.work_days
+class LedgerRecord:
+    day: int
+    ice_used: int
+    team_name: str
 
 
 @dataclass
@@ -31,16 +29,17 @@ class BuildingTeam:
     name: str
     day: int = 1
     productivity: int = DEFAULT_PRODUCTIVITY  # yards amount team can build per day
-    schedule: Schedule = Schedule()
 
-    def get_buid_schedule(self, section: UnfinishedSection) -> dict[int, int]:
-        # returned dict keys: days on which team is building
-        # returned dict values: ice amount spent on that day
-        result = {}
+    def get_buid_data(self, section: UnfinishedSection) -> list[LedgerRecord]:
+        result = []
         yards_to_build = section.yards_to_build
         while yards_to_build > 0:
-            if self.schedule.is_working_day(self.day):
-                result[self.day] = min(self.productivity, yards_to_build)
-                yards_to_build -= result[self.day]
+            ice_used = min(self.productivity, yards_to_build)
+            result.append(LedgerRecord(
+                team_name=self.name,
+                day=self.day,
+                ice_used=ice_used,
+            ))
+            yards_to_build -= ice_used
             self.day += 1
         return result
